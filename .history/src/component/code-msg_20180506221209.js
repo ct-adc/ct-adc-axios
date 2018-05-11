@@ -3,7 +3,7 @@
  */
 const codeMsg = {
     dataErrorMsg: {
-        20001: '已存在相同名称计时物品类',
+        10101: '游戏缩写不合法',
         default: '处理出错'
     },
     responseErrorMsg: {
@@ -21,7 +21,7 @@ const codeMsg = {
      */
     resolveDataError(code, defaultMsg = ''){
         if (defaultMsg === ''){
-            defaultMsg = codeMsg.dataErrorMsg.default;
+            defaultMsg = codeMsg.msgByCode.default;
         }
         return codeMsg.dataErrorMsg[code] || defaultMsg;
     },
@@ -33,7 +33,7 @@ const codeMsg = {
      */
     resolveResponseError(response, defaultMsg = ''){
         if (defaultMsg === ''){
-            defaultMsg = this.responseErrorMsg.default;
+            defaultMsg = this.msgForXhr.default;
         }
         return this.responseErrorMsg[response.status] || defaultMsg;
     },
